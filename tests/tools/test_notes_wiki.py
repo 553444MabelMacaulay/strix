@@ -170,3 +170,45 @@ def test_append_note_content_appends_delta(tmp_path: Path, monkeypatch) -> None:
     finally:
         _reset_notes_state()
         set_global_tracer(previous_tracer)  # type: ignore[arg-type]
+
+
+def test_list_and_get_note_handle_wiki_repersist_oserror_gracefully(
+    tmp_path: Path, monkeypatch
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    _reset_notes_state()
+
+    previous_tracer = get_global_tracer()
+    tracer = Tracer("wiki-repersist-oserror-run")
+    set_global_tracer(tracer)
+
+    try:
+        created = notes_actions.create_note(
+            title="Repo wiki",
+            content="initial wiki content",
+            category="wiki",
+            tags=["repo:demo"],
+        )
+        assert created["success"] is True
+        note_id = created["note_id"]
+        assert isinstance(note_id, str)
+
+        _reset_notes_state()
+
+        def _raise_oserror(*_args, **_kwargs) -> None:
+            raise OSError("disk full")
+
+        monkeypatch.setattr(notes_actions, "_persist_wiki_note", _raise_oserror)
+
+        listed = notes_actions.list_notes(category="wiki")
+        assert listed["success"] is True
+        assert listed["total_count"] == 1
+        assert listed["notes"][0]["note_id"] == note_id
+
+        fetched = notes_actions.get_note(note_id=note_id)
+        assert fetched["success"] is True
+        assert fetched["note"]["note_id"] == note_id
+        assert fetched["note"]["content"] == "initial wiki content"
+    finally:
+        _reset_notes_state()
+        set_global_tracer(previous_tracer)  # type: ignore[arg-type]

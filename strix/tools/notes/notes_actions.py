@@ -103,9 +103,12 @@ def _ensure_notes_loaded() -> None:
     notes_path = _get_notes_jsonl_path()
     if notes_path:
         _notes_storage.update(_load_notes_from_jsonl(notes_path))
-        for note_id, note in _notes_storage.items():
-            if note.get("category") == "wiki":
-                _persist_wiki_note(note_id, note)
+        try:
+            for note_id, note in _notes_storage.items():
+                if note.get("category") == "wiki":
+                    _persist_wiki_note(note_id, note)
+        except OSError:
+            pass
 
     _loaded_notes_run_dir = run_dir_key
 

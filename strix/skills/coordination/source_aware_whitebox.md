@@ -14,6 +14,8 @@ Increase white-box coverage by combining source-aware triage with dynamic valida
 ## Recommended Workflow
 
 1. Build a quick source map before deep exploitation, including at least one AST-structural pass (`sg` or `tree-sitter`) scoped to relevant paths.
+   - For `sg` baseline, derive `sg-targets.txt` from `semgrep.json` scope first (`paths.scanned`, fallback to unique `results[].path`) and run `xargs ... sg run` on that list.
+   - Only fall back to path heuristics when semgrep scope is unavailable, and record the fallback reason in the repo wiki.
 2. Run first-pass static triage to rank high-risk paths.
 3. Use triage outputs to prioritize dynamic PoC validation.
 4. Keep findings evidence-driven: no report without validation.
