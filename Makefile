@@ -60,7 +60,8 @@ check-all: format lint type-check security
 
 test:
 	@echo "🧪 Running tests..."
-	uv run pytest -v
+	# using -x to stop on first failure - makes it easier to focus on one thing at a time
+	uv run pytest -v -x
 	@echo "✅ Tests complete!"
 
 test-cov:
