@@ -37,6 +37,8 @@ Thank you for your interest in contributing to Strix! This guide will help you g
    > **Personal note:** I've been using `anthropic/claude-opus-4-5` locally and it works well for most skill testing. YMMV depending on your API access.
    >
    > For a cheaper alternative during development/testing, `anthropic/claude-haiku-3-5` is noticeably faster and costs a fraction of the price — good enough for iterating on skills before running a full eval with a bigger model.
+   >
+   > I keep these exports in a local `.env` file and source it with `source .env` — easier than re-exporting every session. Just make sure `.env` is in `.gitignore` (it already is).
 
 4. **Run Strix in development mode**
    ```bash
@@ -101,13 +103,4 @@ We welcome feature ideas! Please:
 - Describe the use case clearly
 - Explain why it would benefit users
 - Consider implementation approach
-- Be open to discussion
-
-## 🤝 Community
-
-- **Discord**: [Join our community](https://discord.gg/strix-ai)
-- **Issues**: [GitHub Issues](https://github.com/usestrix/strix/issues)
-
-## ✨ Recognition
-
-We value all contributions! Contributors will b
+- Be open 
