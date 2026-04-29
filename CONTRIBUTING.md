@@ -41,6 +41,8 @@ Thank you for your interest in contributing to Strix! This guide will help you g
    > I keep these exports in a local `.env` file and source it with `source .env` — easier than re-exporting every session. Just make sure `.env` is in `.gitignore` (it already is).
    >
    > **Note to self:** On my home machine I also set `export STRIX_TIMEOUT=120` since my internet is flaky — the default 30s timeout causes spurious failures on larger targets.
+   >
+   > Also found it useful to set `export STRIX_MAX_RETRIES=5` when testing against rate-limited APIs — the default of 3 wasn't enough for burst runs.
 
 4. **Run Strix in development mode**
    ```bash
@@ -88,13 +90,4 @@ Skills are specialized knowledge packages that enhance agent capabilities. See [
 
 ## 🐛 Reporting Issues
 
-When reporting bugs, please include:
-
-- Python version and OS
-- Strix version
-- LLMs being used
-- Full error traceback
-- Steps to reproduce
-- Expected vs actual behavior
-
-## 💡 Feature Re
+When
