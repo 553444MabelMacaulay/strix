@@ -43,6 +43,8 @@ Thank you for your interest in contributing to Strix! This guide will help you g
    > **Note to self:** On my home machine I also set `export STRIX_TIMEOUT=120` since my internet is flaky — the default 30s timeout causes spurious failures on larger targets.
    >
    > Also found it useful to set `export STRIX_MAX_RETRIES=5` when testing against rate-limited APIs — the default of 3 wasn't enough for burst runs.
+   >
+   > Setting `export STRIX_LOG_LEVEL=debug` is also handy when a run fails silently — gives you a lot more context on what the agent was doing before it bailed.
 
 4. **Run Strix in development mode**
    ```bash
@@ -83,11 +85,4 @@ Skills are specialized knowledge packages that enhance agent capabilities. See [
 ### Code Style
 
 - Follow PEP 8 with 100-character line limit
-- Use type hints for all functions
-- Write docstrings for public methods
-- Keep functions focused and small
-- Use meaningful variable names
-
-## 🐛 Reporting Issues
-
-When
+- Use type hi
