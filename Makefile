@@ -62,8 +62,8 @@ test:
 	@echo "🧪 Running tests..."
 	# using -x to stop on first failure - makes it easier to focus on one thing at a time
 	# added --tb=short to keep tracebacks readable without too much noise
-	# using -p no:randomly to keep test order consistent while learning the codebase
-	uv run pytest -v -x --tb=short -p no:randomly
+	# removed -p no:randomly so tests run in random order to catch order-dependent bugs
+	uv run pytest -v -x --tb=short
 	@echo "✅ Tests complete!"
 
 test-cov:
@@ -85,5 +85,3 @@ clean:
 	find . -type d -name ".ruff_cache" -exec rm -rf {} + 2>/dev/null || true
 	find . -type d -name "htmlcov" -exec rm -rf {} + 2>/dev/null || true
 	find . -name "*.pyc" -delete 2>/dev/null || true
-	find . -name ".coverage" -delete 2>/dev/null || true
-	@echo "✅ 
