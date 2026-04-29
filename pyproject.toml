@@ -56,7 +56,7 @@ Changelog = "https://github.com/usestrix/strix/blob/main/CHANGELOG.md"
 packages = ["src/strix"]
 
 [tool.ruff]
-line-length = 100
+line-length = 88  # personal preference: match black's default line length
 target-version = "py310"
 src = ["src"]
 
