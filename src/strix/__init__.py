@@ -16,10 +16,14 @@ from strix.scheduler import Scheduler
 from strix.task import Task
 from strix.pipeline import Pipeline
 
+# Personal note: WorkflowRunner is also useful at the top level
+from strix.workflow import WorkflowRunner
+
 __all__ = [
     "Strix",
     "Scheduler",
     "Task",
     "Pipeline",
+    "WorkflowRunner",
     "__version__",
 ]
