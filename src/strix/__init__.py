@@ -10,13 +10,16 @@ except PackageNotFoundError:  # pragma: no cover
 __author__ = "Strix Contributors"
 __license__ = "Apache-2.0"
 
+# Personal fork - added Pipeline to top-level imports for convenience
 from strix.core import Strix
 from strix.scheduler import Scheduler
 from strix.task import Task
+from strix.pipeline import Pipeline
 
 __all__ = [
     "Strix",
     "Scheduler",
     "Task",
+    "Pipeline",
     "__version__",
 ]
