@@ -39,6 +39,8 @@ Thank you for your interest in contributing to Strix! This guide will help you g
    > For a cheaper alternative during development/testing, `anthropic/claude-haiku-3-5` is noticeably faster and costs a fraction of the price — good enough for iterating on skills before running a full eval with a bigger model.
    >
    > I keep these exports in a local `.env` file and source it with `source .env` — easier than re-exporting every session. Just make sure `.env` is in `.gitignore` (it already is).
+   >
+   > **Note to self:** On my home machine I also set `export STRIX_TIMEOUT=120` since my internet is flaky — the default 30s timeout causes spurious failures on larger targets.
 
 4. **Run Strix in development mode**
    ```bash
@@ -95,12 +97,4 @@ When reporting bugs, please include:
 - Steps to reproduce
 - Expected vs actual behavior
 
-## 💡 Feature Requests
-
-We welcome feature ideas! Please:
-
-- Check existing issues first
-- Describe the use case clearly
-- Explain why it would benefit users
-- Consider implementation approach
-- Be open 
+## 💡 Feature Re
