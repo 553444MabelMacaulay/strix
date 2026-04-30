@@ -21,7 +21,14 @@ from strix.workflow import WorkflowRunner
 
 # Personal fork: expose __version__ and author info via a helper for quick debugging
 def version_info() -> str:
-    """Return a human-readable version string for quick debugging."""
+    """Return a human-readable version string for quick debugging.
+
+    Example::
+
+        >>> import strix
+        >>> print(strix.version_info())
+        strix v1.2.3 (fork) — Strix Contributors, Apache-2.0
+    """
     return f"strix v{__version__} (fork) — {__author__}, {__license__}"
 
 __all__ = [
