@@ -45,6 +45,8 @@ Thank you for your interest in contributing to Strix! This guide will help you g
    > Also found it useful to set `export STRIX_MAX_RETRIES=5` when testing against rate-limited APIs — the default of 3 wasn't enough for burst runs.
    >
    > Setting `export STRIX_LOG_LEVEL=debug` is also handy when a run fails silently — gives you a lot more context on what the agent was doing before it bailed.
+   >
+   > **Tip:** I alias the full dev invocation in my shell config: `alias strix-dev='source .env && uv run strix'` — saves a lot of typing.
 
 4. **Run Strix in development mode**
    ```bash
@@ -79,10 +81,4 @@ Skills are specialized knowledge packages that enhance agent capabilities. See [
 - **Clear description** - Explain what and why
 - **Small, focused changes** - One feature/fix per PR
 - **Include examples** - Show before/after behavior
-- **Update documentation** - If adding features
-- **Pass all checks** - Tests, linting, type checking
-
-### Code Style
-
-- Follow PEP 8 with 100-character line limit
-- Use type hi
+- **Update 
