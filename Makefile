@@ -84,4 +84,6 @@ clean:
 	find . -type d -name ".pytest_cache" -exec rm -rf {} + 2>/dev/null || true
 	find . -type d -name ".mypy_cache" -exec rm -rf {} + 2>/dev/null || true
 	find . -type d -name ".ruff_cache" -exec rm -rf {} + 2>/dev/null || true
-	find . -typ
+	# also clean up coverage artifacts
+	rm -rf htmlcov/ .coverage 2>/dev/null || true
+	@echo "✅ Clean complete!"
