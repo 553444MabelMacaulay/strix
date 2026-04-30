@@ -19,11 +19,17 @@ from strix.pipeline import Pipeline
 # Personal note: WorkflowRunner is also useful at the top level
 from strix.workflow import WorkflowRunner
 
+# Personal fork: expose __version__ and author info via a helper for quick debugging
+def version_info() -> str:
+    """Return a human-readable version string for quick debugging."""
+    return f"strix v{__version__} (fork) — {__author__}, {__license__}"
+
 __all__ = [
     "Strix",
     "Scheduler",
     "Task",
     "Pipeline",
     "WorkflowRunner",
+    "version_info",
     "__version__",
 ]
